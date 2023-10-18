@@ -1,0 +1,42 @@
+use Viagem;
+create table Usuario(
+idUsuario INT auto_increment primary key,
+nomeUsuario Varchar(50) not null,
+cpfUsuario Varchar(11) unique not null,
+emailUsuario Varchar(100) not null,
+senhaUsuario Varchar(8) not null,
+telefoneUsuario Varchar(13) not null
+);
+create table Reserva(
+idReserva INT auto_increment primary key,
+StatusReserva varchar(20) not null,
+inicioDtReserva date not null,
+finalDtReserva date not null,
+idUsuario int,
+idDestino int
+);
+
+create table Destino(
+idDestino int auto_increment primary key,
+nomeDestino varchar(100) not null,
+valorDestino double not null,
+paisDestino varchar(50) not null,
+cidadeDestino varchar(60) not null,
+estadoDestino varchar(60) not null
+);
+
+create table Promocoes(
+idPromocoes int auto_increment primary key,
+descricaoPromocoes varchar(100) not null,
+valorPromocao int not null,
+idDestino int
+);
+
+create table Contato(
+idContato int auto_increment primary key,
+nomeContato Varchar(100) not null,
+emailContato varchar(100) not null,
+telefone varchar(13) not null,
+msg varchar(200) not null
+);
+
